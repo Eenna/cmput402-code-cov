@@ -28,7 +28,9 @@ jobs:
 
     # TODO: Add Codecov (make sure to set up on codecov.io as well) 
     #       for test coverage reports
-    - name: test test
-      run: ./TestSaying.java
-    - name: token thing
-      run: bash <(curl -s https://codecov.io/bash)
+    - name: Generate Report
+      run: ./gradlew jacocoTestReport
+
+test:
+  post:
+    - bash <(curl -s https://codecov.io/bash)
